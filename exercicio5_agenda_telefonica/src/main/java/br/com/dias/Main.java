@@ -11,8 +11,9 @@ public class Main {
             System.out.println("\n----- Agenda de Contatos -----\n");
             System.out.println("1 - Adicionar Contato");
             System.out.println("2 - Listar Contato");
-            System.out.println("3 - Buscar Contato");
-            System.out.println("4 - Sair");
+            System.out.println("3 - Buscar Contato pelo nome ");
+            System.out.println("4 - Deletar Contato pelo Nome"); 
+            System.out.println("5 - Sair");
             try {
                 operacao = sc.nextInt();
                 switch (operacao) {
@@ -41,12 +42,22 @@ public class Main {
                         
                         System.out.println("Digite o nome a ser Buscado");
                         String nomeBuscado = sc.next();
-                        agenda.buscarNome(nomeBuscado);
+                        System.out.println(agenda.buscarContato(nomeBuscado).toString());
                     } catch (Exception e) {
-                        // TODO: handle exception
+                        System.out.println(e);
                     }
                         break;
                     case 4:
+                    try {
+                        System.out.println("Digite o nome a ser Buscado");
+                        String nomeDeletar = sc.next();
+                        agenda.buscarContato(nomeDeletar);
+                        System.out.println("Contato Deletado com Sucesso");
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                        break;
+                    case 5:
                         System.out.println("Saindo...");
                         break;
                     default:
